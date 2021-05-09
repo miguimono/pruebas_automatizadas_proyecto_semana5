@@ -423,7 +423,7 @@ async function escenario16(page, host_ghost, puerto_ghost) {
     eu = 'EP16-LPMEO-02';
     await publicar(page, eu, host_ghost, puerto_ghost);
     eu = 'EP16-LPMEO-03';
-    await modificar(page, eu, host_ghost, puerto_ghost);
+    await modificar_publicado(page, eu, host_ghost, puerto_ghost);
     eu = 'EP16-LPMEO-04';
     await eliminar(page, eu, host_ghost, puerto_ghost);
     eu = 'EP16-LPMEO-05';
