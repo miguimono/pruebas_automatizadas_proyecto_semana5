@@ -101,90 +101,90 @@ const puppeteer = require('puppeteer');
     puerto_ghost = '2368'
 
 
-    // ESCENARIO DE PRUEBA 1: LC 
+    // ESCENARIO DE PRUEBA 1: LCO
     await escenario01(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 2: LM
+    // ESCENARIO DE PRUEBA 2: LMO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario02(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 3: LP
+    // ESCENARIO DE PRUEBA 3: LPO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario03(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 4: LE
+    // ESCENARIO DE PRUEBA 4: LEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario04(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 5: LCM
+    // ESCENARIO DE PRUEBA 5: LCMO
     await escenario05(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
     
-    // ESCENARIO DE PRUEBA 6: LCP
+    // ESCENARIO DE PRUEBA 6: LCPO
     await escenario06(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 7: LCE
+    // ESCENARIO DE PRUEBA 7: LCEO
     await escenario07(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 8: LME 
+    // ESCENARIO DE PRUEBA 8: LMEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario08(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 9: LMP 
+    // ESCENARIO DE PRUEBA 9: LMPO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario09(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 10: LMC 
+    // ESCENARIO DE PRUEBA 10: LMCO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario10(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 11: LPE
+    // ESCENARIO DE PRUEBA 11: LPEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario11(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 12: LPM
+    // ESCENARIO DE PRUEBA 12: LPMO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario12(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 13: LMPE
+    // ESCENARIO DE PRUEBA 13: LMPEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario13(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 14: LMCE
+    // ESCENARIO DE PRUEBA 14: LMCEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario14(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
     
-    // ESCENARIO DE PRUEBA 15: LCMP
+    // ESCENARIO DE PRUEBA 15: LCMPO
     await escenario15(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 16: LPME
+    // ESCENARIO DE PRUEBA 16: LPMEO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario16(page, host_ghost, puerto_ghost);
     
-    // ESCENARIO DE PRUEBA 17: LMCP
+    // ESCENARIO DE PRUEBA 17: LMCPO
     await precondicion(page, host_ghost, puerto_ghost);
     await escenario17(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 18: LCPM
+    // ESCENARIO DE PRUEBA 18: LCPMO
     await escenario18(page, host_ghost, puerto_ghost);
     await postcondicion(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 19: LCPE
+    // ESCENARIO DE PRUEBA 19: LCPEO
     await escenario19(page, host_ghost, puerto_ghost);
 
-    // ESCENARIO DE PRUEBA 20: LCPME
+    // ESCENARIO DE PRUEBA 20: LCPMEO
     await escenario20(page, host_ghost, puerto_ghost);
     
     await browser.close();
@@ -543,24 +543,28 @@ async function publicar(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-publicar-02.png'})
     
     //Hace clic en el primer posts 
+    await page.waitForSelector('a.ember-view.permalink.gh-list-data.gh-post-list-title');
     await page.click('a.ember-view.permalink.gh-list-data.gh-post-list-title')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en acceder al primer post')
     await page.screenshot({path: './images/'+eu+'-publicar-03.png'})
 
     //Hace clic en el boton de Publish para que muestre el boton de publicar el post
+    await page.waitForSelector('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger');
     await page.click('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger')
     await new Promise(r => setTimeout(r, 1000));
     console.log(eu+' : Clic activar el formulario de publicar el nuevo post')
     await page.screenshot({path: './images/'+eu+'-publicar-04.png'})
 
     //Hace clic en el boton de Publish para que publique el nuevo post 
+    await page.waitForSelector('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view');
     await page.click('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view')
     await new Promise(r => setTimeout(r, 3000));
     console.log(eu+' : Clic publicar el nuevo post')
     await page.screenshot({path: './images/'+eu+'-publicar-05.png'})
 
     //Guarda el POSTS modificado y regresa a la pagina de administracion
+    await page.waitForSelector('a.blue.link.fw4.flex.items-center.ember-view');
     await page.click('a.blue.link.fw4.flex.items-center.ember-view')
     await new Promise(r => setTimeout(r, 10000));
     console.log(eu+' : Clic en regresar a la pagina pricipal de administracion para que guarde los cambios')
@@ -583,30 +587,35 @@ async function modificar_publicado(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-modificar-02.png'})
     
     //Hace clic en el primer posts 
+    await page.waitForSelector('a.ember-view.permalink.gh-list-data.gh-post-list-title');
     await page.click('a.ember-view.permalink.gh-list-data.gh-post-list-title')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en acceder al primer post')
     await page.screenshot({path: './images/'+eu+'-modificar-03.png'})
 
     //Modifica el titulo del post
+    await page.waitForSelector('textarea.gh-editor-title.ember-text-area.gh-input.ember-view');
     await page.type('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', ' - MODIFICADO LUEGO DE PUBLICADO');
     console.log(eu+' : Realizado proceso de la modificacion del titulo del POST')
     await new Promise(r => setTimeout(r, 2000));
     await page.screenshot({path:'./images/'+eu+'-modificar-04.png'})
     
     //Hace clic en el boton de Update para que muestre el boton de actualizar el post
+    await page.waitForSelector('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger');
     await page.click('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger')
     await new Promise(r => setTimeout(r, 1000));
     console.log(eu+' : Clic activar el formulario de actualizar el post')
     await page.screenshot({path: './images/'+eu+'-modificar-04.png'})
 
     //Hace clic en el boton de Update para modificar el post 
+    await page.waitForSelector('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view');
     await page.click('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view')
     await new Promise(r => setTimeout(r, 3000));
     console.log(eu+' : Clic actualizar el post')
     await page.screenshot({path: './images/'+eu+'-publicar-05.png'})
 
     //Guarda el POSTS modificado y regresa a la pagina de administracion
+    await page.waitForSelector('a.blue.link.fw4.flex.items-center.ember-view');
     await page.click('a.blue.link.fw4.flex.items-center.ember-view')
     await new Promise(r => setTimeout(r, 10000));
     console.log(eu+' : Clic en regresar a la pagina pricipal de administracion para que guarde los cambios')
@@ -629,18 +638,21 @@ async function modificar(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-modificar-02.png'})
     
     //Hace clic en el primer posts 
+    await page.waitForSelector('a.ember-view.permalink.gh-list-data.gh-post-list-title');
     await page.click('a.ember-view.permalink.gh-list-data.gh-post-list-title')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en acceder al primer post')
     await page.screenshot({path: './images/'+eu+'-modificar-03.png'})
 
     //Modifica el titulo del post
+    await page.waitForSelector('textarea.gh-editor-title.ember-text-area.gh-input.ember-view');
     await page.type('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', ' - MODIFICADO');
     console.log(eu+' : Realizado proceso de la modificacion del titulo del POST')
     await new Promise(r => setTimeout(r, 2000));
     await page.screenshot({path:'./images/'+eu+'-modificar-04.png'})
 
     //Guarda el POSTS modificado y regresa a la pagina de administracion
+    await page.waitForSelector('a.blue.link.fw4.flex.items-center.ember-view');
     await page.click('a.blue.link.fw4.flex.items-center.ember-view')
     await new Promise(r => setTimeout(r, 10000));
     console.log(eu+' : Clic en regresar a la pagina pricipal de administracion para que guarde los cambios')
@@ -663,24 +675,28 @@ async function eliminar(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-eliminar-02.png'})
     
     //Hace clic en el primer posts 
+    await page.waitForSelector('a.ember-view.permalink.gh-list-data.gh-post-list-title');
     await page.click('a.ember-view.permalink.gh-list-data.gh-post-list-title')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en acceder al primer post')
     await page.screenshot({path: './images/'+eu+'-eliminar-03.png'})
 
     //Hace clic en el boton de opciones para que active el boton de eliminar 
+    await page.waitForSelector('button.post-settings');
     await page.click('button.post-settings')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en el boton de configuraciones del post')
     await page.screenshot({path: './images/'+eu+'-eliminar-04.png'})
 
     //Hace clic en el boton de eliminar 
+    await page.waitForSelector('[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]');
     await page.click('[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en el boton de eliminar post')
     await page.screenshot({path: './images/'+eu+'-eliminar-05.png'})
 
     //Hace clic en el boton de confirmacion de eliminacion y regresa a la pagina de listado de post
+    await page.waitForSelector('button.gh-btn.gh-btn-red.gh-btn-icon.ember-view');
     await page.click('button.gh-btn.gh-btn-red.gh-btn-icon.ember-view')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en el boton de confirmacion de eliminar post')
@@ -703,24 +719,28 @@ async function crear(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-crear-02.png'})
 
     //Hace clic en el boton de New Posts para cargar la pagina de creacion de posts 
+    await page.waitForSelector('a.ember-view.gh-btn.gh-btn-green');
     await page.click('a.ember-view.gh-btn.gh-btn-green')
     await new Promise(r => setTimeout(r, 2000));
     console.log(eu+' : Clic en acceder a nuevo post')
     await page.screenshot({path: './images/'+eu+'-crear-03.png'})
 
     //Escribe el titulo del post
+    await page.waitForSelector('textarea.gh-editor-title.ember-text-area.gh-input.ember-view');
     await page.type('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'titulo de prueba');
     console.log(eu+' : Realizado proceso de llenado del titulo del POST')
     await new Promise(r => setTimeout(r, 2000));
     await page.screenshot({path:'./images/'+eu+'-crear-04.png'})
 
     //Crea el nuevo POSTS 
+    await page.waitForSelector('a.blue.link.fw4.flex.items-center.ember-view');
     await page.click('a.blue.link.fw4.flex.items-center.ember-view')
     await new Promise(r => setTimeout(r, 10000));
     console.log(eu+' : Clic en regresar a la pagina pricipal de administracion para que guarde los cambios')
     await page.screenshot({path: './images/'+eu+'-crear-05.png'})
 
     //Regresa a la pagina de administracion 
+    await page.waitForSelector('a.blue.link.fw4.flex.items-center.ember-view');
     await page.click('a.blue.link.fw4.flex.items-center.ember-view')
     await new Promise(r => setTimeout(r, 5000));
     console.log(eu+' : Clic en regresar a la pagina pricipal de administracion')
@@ -736,13 +756,16 @@ async function login(page, eu, host_ghost, puerto_ghost) {
     await page.screenshot({path: './images/'+eu+'-login-01.png'})
 
     //Llena los campos del formulario con datos correctos
+    await page.waitForSelector('input[name="identification"]');
     await page.type('input[name="identification"]', 's.salinasv@uniandes.edu.co');
+    await page.waitForSelector('input[name="password"]');
     await page.type('input[name="password"]', 'Hk194ftxw5');
     console.log(eu+' : Datos validos de logeo')
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path:'./images/'+eu+'-login-02.png'})
 
     //Hace clic en el boton Sign y pasa a la pagina de post
+    await page.waitForSelector('button.login.gh-btn.gh-btn-blue.gh-btn-block.gh-btn-icon.ember-view');
     await page.click('button.login.gh-btn.gh-btn-blue.gh-btn-block.gh-btn-icon.ember-view')
     console.log(eu+' : Realizado proceso de logeo')
     await new Promise(r => setTimeout(r, 1000));
