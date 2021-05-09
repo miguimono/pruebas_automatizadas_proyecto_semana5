@@ -1,0 +1,1 @@
+Esta carpeta contiene las imágenes generadas en el proceso de ejecución del script index.js de Puppeteer
