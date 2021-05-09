@@ -93,7 +93,7 @@ Este escenario combina las funcionalidades Logueo, Creación, Publicación, Modi
 
 Una vez se clona el repositorio es necesario instalara las librerías necesarias para su funcionamiento. Para ello ubiquese en la carpeta "pupperteer" y ejecute el siguiente comando:
 
-npm install
+`npm install`
 
 Luego de unos minutos concluirá la instalación de todas las librerías necesarias.
 
@@ -102,7 +102,8 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
 1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo puppeteer/src/index.js en las lineas 100 y 101 con la información adecuada. 
-2. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: node ./src/index.js
+2. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: 
+`node ./src/index.js`
 
 ### Resultados:
 
