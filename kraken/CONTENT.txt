@@ -1,0 +1,2 @@
+Esta carpeta contiene los archivos relacionados con las pruebas sobre la
+plataforma KRAKEN
