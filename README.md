@@ -128,8 +128,10 @@ Los resultados de las pruebas se pueden validar en la carpeta *reports*, en la c
 * La herramienta permite interactuar entre varios dispositivos al tiempo y logra crear flujos completos que involucran varios tipos de dispositivos
 * Para las pruebas e2e de la ABP Ghost solo se vio la necesidad de usar un solo dispositivo para pruebas en plataforma web lo que genera las pruebas de manera directa
 * La herramienta Kraken permite la creación de un archivo de configuraciones para centralizar la utilización de variables de pruebas
-* Se pueden realizar varios tipos de pruebas e2e de forma sencilla una vez se conoce el funcionamiento
+* Se pueden realizar varios tipos de pruebas e2e de forma sencilla una vez se conoce el funcionamiento.
+* Una vez instalada la herramienta, es fácil crear un proyecto bajo pruebas con ella.
 
 ### Contras herramienta Kraken
 * No tiene una documentación extensa, lo que obliga a trabajar bajo la premisa de prueba y error, no se encuentra información en internet ya que la herramienta hace parte de un proyecto investigativo que aún está en proceso.
-* La herramienta en un inicio es complicada de usar ya que no se cuentan con proyectos o guías que ejemplifiquen su uso y funcionamiento
+* La herramienta en un inicio es complicada de usar ya que no se cuentan con proyectos o guías que ejemplifiquen su uso y funcionamiento.
+* Proceso de instalación complicado y con muchos pasos.
