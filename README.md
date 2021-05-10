@@ -115,3 +115,10 @@ Por ejemplo: EP02-LMO-02-modificar-01.png, se interpreta como:
 * Índice de la imagen en los pasos de prueba de la funcionalidad : 01. 
 
 ## KRAKEN:
+
+### Ejecución:
+
+Para poder ejecutar los escenarios de pruebas en Kraken se debe seguir los siguientes pasos:
+
+1. Ejecutar el comando:
+`bundle exec kraken-mobile run --properties="properties.json"`
