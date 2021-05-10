@@ -1,2 +1,2 @@
 node_modules
-puppeteer/images/*.png
+#puppeteer/images/*.png
