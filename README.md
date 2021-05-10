@@ -114,11 +114,22 @@ Por ejemplo: EP02-LMO-02-modificar-01.png, se interpreta como:
 * Pertenencia de la prueba a la funcionalidadad : 02-modificar.
 * Índice de la imagen en los pasos de prueba de la funcionalidad : 01. 
 
-## KRAKEN:
+## Kraken
+### Instalación
+Como precondición se debe tener en cuenta que el proyecto dentro de la carpeta *kraken* tiene dependencia del compilado de **KrakenMobile-1.0.9** por lo cual las dos carpetas deben existir al mismo nive para que la prueba funcione.
+Se creó el archivo ```propetires.json``` en el cual se colocan las variables para la ejecución de la prueba.
+### Ejecución
+La forma de ejecutar la prueba es mediante el comando ```bundle exec kraken-mobile run --properties="properties.json"```
+Tener en cuenta que las variables que existen en el el archivo `properties.json` sirven para la ejecución de la prueba, por lo tanto se solicita modificar estas variables según su propia instancia de Ghost y su usuario y contraseña creados.
+### Resultados
+Los resultados de las pruebas se pueden validar en la carpeta *reports*, en la cual se genera una nueva subcarpeta por cada escenario ejecutado.
 
-### Ejecución:
+### Pros herramienta Kraken
+* La herramienta permite interactuar entre varios dispositivos al tiempo y logra crear flujos completos que involucran varios tipos de dispositivos
+* Para las pruebas e2e de la ABP Ghost solo se vio la necesidad de usar un solo dispositivo para pruebas en plataforma web lo que genera las pruebas de manera directa
+* La herramienta Kraken permite la creación de un archivo de configuraciones para centralizar la utilización de variables de pruebas
+* Se pueden realizar varios tipos de pruebas e2e de forma sencilla una vez se conoce el funcionamiento
 
-Para poder ejecutar los escenarios de pruebas en Kraken se debe seguir los siguientes pasos:
-
-1. Ejecutar el comando:
-`bundle exec kraken-mobile run --properties="properties.json"`
+### Contras herramienta Kraken
+* No tiene una documentación extensa, lo que obliga a trabajar bajo la premisa de prueba y error, no se encuentra información en internet ya que la herramienta hace parte de un proyecto investigativo que aún está en proceso.
+* La herramienta en un inicio es complicada de usar ya que no se cuentan con proyectos o guías que ejemplifiquen su uso y funcionamiento
